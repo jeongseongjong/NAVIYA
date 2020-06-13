@@ -1,2 +1,2 @@
 # NAVIYA
-> - https://jeongseongjong.github.io/team-project-css/vsCode/main.html
+> - https://jeongseongjong.github.io/naviya/team-project-css/vsCode/main.html
