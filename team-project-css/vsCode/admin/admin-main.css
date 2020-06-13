@@ -1,0 +1,170 @@
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.sidebar-st {
+  position: fixed;
+  scroll-behavior: auto;
+  border-right: 1px solid #252c41;
+  width: 160px;
+  height: 400px;
+  text-align: center;
+}
+
+.side-btn {
+  text-decoration: none;
+  background-color: white;
+}
+
+.side-btn:hover {
+  text-decoration: none;
+  background-color: transparent !important;
+}
+
+.in-ck-box {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.bt-review-wr {
+  border: 1px solid #b2b4b9;
+  background-color: white;
+  width: 100px;
+  height: 30px;
+  margin-top: 10px;
+  outline: none;
+}
+
+.bt-bbs-style {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.bt-bbs-save {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+/* pro-detail-update css*/
+
+#btn-plus {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+/* admin-user detail*/
+.input-form {
+  border: 1px solid rgb(156, 154, 154);
+  border-radius: 10px;
+  outline: none;
+}
+
+/* main dashboard*/
+/* 리스트 css */
+.column {
+  border: 1px solid #f4f5f9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.container-fluid {
+  margin-top: 20px;
+}
+/* 이동 타켓 */
+.card-placeholder {
+  border: 1px dotted black;
+  margin: 0 1em 1em 0;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  /* 노란색으로 표신되는 것이 주요 포인트 */
+  background-color: white;
+}
+/* 마우스 포인터을 손가락으로 변경 */
+.card:not(.no-move) .card-header {
+  cursor: pointer;
+}
+/* 부트스트랩 3.x에는 card 클래스 컴포낸트가 없으니 제가 만들었습니다. */
+.card {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+.card-header {
+  border-bottom: 1px solid;
+  margin: 0px -10px;
+  padding: 5px 10px;
+  padding-top: 0px;
+}
+
+/* box css*/
+
+.spn-list {
+  text-decoration: none;
+}
+.spn-list a:hover {
+  text-decoration: none;
+  color: #f1404b;
+}
+
+.spn-list a {
+  position: relative;
+  display: block;
+  line-height: 27px;
+  padding-right: 80px;
+  color: #333;
+}
+.spn-list a .title {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.spn-list a .date {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

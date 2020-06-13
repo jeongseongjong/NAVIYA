@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="shopDetail.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script src="main.js"></script>
+  </head>
+  <script>
+    $(function () {
+      $(".dropdownbox").click(function () {
+        $(".menu").toggleClass("showMenu");
+        $(".menu > li").click(function () {
+          $(".dropdownbox > p").text($(this).text());
+          $(".menu").removeClass("showMenu");
+        });
+      });
+      $(".small_thumb li a").click(function () {
+        var address = $(this).children("img");
+        $(".big_pic img")
+          .attr("src", address.attr("src"))
+          .attr("id", address.attr("id"));
+
+        $(this).parent().addClass("on").siblings().removeClass("on");
+        return false;
+      });
+
+      $(document).on("change", "#color", function () {
+        if ($("#color").val() === "COLOR") {
+          return false;
+        }
+        let select_ck = $("#select_ck").val();
+        let color = $("#color").val();
+        $(".prod").append(`
+        <li>
+        <span class="tit">
+          <span>GUCCI DRESS/${select_ck}/${color}</span>
+          <span class="stock">15개 남음</span>
+          </span>
+          <button type="button" class="del">
+            <i class="blind">삭제</i>
+          </button>
+          <div class="middle_wrap">
+            <div class="price_area">
+              <div class="price">
+                <div class="total_price">
+                  <span class="prmt_discount">
+                    <strong>1,750,000</strong>
+                    won
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="amount">
+              <button class="minus " type="button">
+                <i class="blind">수량감소</i>
+              </button>
+              <label>
+                <input type="text" value="1">
+              </label>
+              <button class="plus" type="button">
+                <i class="blind">수량증가</i>
+              </button>
+            </div>
+          </div>
+          <span class="prod_avail_count">100개 구매가능</span>
+        </li>
+        `);
+      });
+
+      $(".starRev span").click(function () {
+        $(this).parent().children("span").removeClass("on");
+        $(this).addClass("on").prevAll("span").addClass("on");
+        return false;
+      });
+    });
+
+    function categoryChange(e) {
+      var size_s = [
+        "COLOR",
+        "BLACK",
+        "RED",
+        "WHITE",
+        "BLUE",
+        "GREEN",
+        "GRAY",
+        "YELLOW",
+      ];
+      var size_m = [
+        "COLOR",
+        "BLACK",
+        "RED",
+        "WHITE",
+        "BLUE",
+        "GREEN",
+        "GRAY",
+        "YELLOW",
+      ];
+      var size_l = [
+        "COLOR",
+        "BLACK",
+        "RED",
+        "WHITE",
+        "BLUE",
+        "GREEN",
+        "GRAY",
+        "YELLOW",
+      ];
+      var target = document.getElementById("color");
+
+      if (e.value == "SMALL") var d = size_s;
+      else if (e.value == "MIDDLE") var d = size_m;
+      else if (e.value == "LARGE") var d = size_l;
+
+      target.options.length = 0;
+
+      for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+      }
+    }
+  </script>
+  <body>
+    <!--header include-->
+    <header>
+      <div class="d-flex">
+        <ul class="nav ml-auto mr-5">
+          <!-- input 검색창-->
+          <li class="nav-item nav-input">
+            <input class="input-style" />
+            <img src="./img/scope.png" class="scope" />
+          </li>
+          <!-- annonimous& authentication-->
+          <li class="nav-item">
+            <a class="nav-link">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">logout</a>
+          </li>
+          <!--로그인시 mypage-->
+          <li class="nav-item">
+            <a class="nav-link">mypage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">join</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!--nav include 할 것-->
+    <nav
+      class="navbar navbar-expand-sm bg-white d-flex ml-5 mt-5 mb-5 sticky-top"
+    >
+      <a href="main.html" class="red-text mr-5 h-title"><h2>NAVIYA</h2></a>
+      <div class="d-flex">
+        <a class="nav-link black-text" href="shopList.html">SHOP</a>
+        <a class="nav-link black-text" href="sponsor.html">고객센터</a>
+        <a class="nav-link black-text" href="./admin/admin-main.html">관리자</a>
+      </div>
+    </nav>
+
+    <article class="all-browsers">
+      <div class="hr-sect mb-5">DETAIL PAGE</div>
+      <!--detail pages 정보 -->
+      <div>
+        <div class="row justify-content-center" style="flex-wrap: nowrap;">
+          <div class="">
+            <div class="big_pic">
+              <img class="main-img" src="./img/dress1.jpg" />
+            </div>
+            <div class="hover11 small_thumb justify-content-center">
+              <ul>
+                <li>
+                  <a>
+                    <img class="de_img" id="img-1" src="./img/gu1.jpg" />
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <img class="de_img" id="img-2" src="./img/gu2.jpg"
+                  /></a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <img class="de_img" id="img-3" src="./img/gu-dress.jpg"
+                  /></a>
+                </li>
+
+                <li>
+                  <a href="#">
+                    <img class="de_img" id="img-4" src="./img/dress1.jpg"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!--detail box-->
+          <div
+            class="detail-box"
+            style="margin-left: 70px; margin-bottom: 100px;"
+          >
+            <div class="mb-3 mt-5">
+              <h2 class="black-text">White pants</h2>
+              <span>15000won</span>
+            </div>
+            <hr style="border: 1px solid #252c41;" />
+            <br />
+            <!--옵션 설정-->
+            <div class="prch-option">
+              <div class="iscroll_inner">
+                <div class="prch-slt">
+                  <label class="tit_align_left">OPTION</label>
+                  <div class="select-s-box">
+                    <select
+                      class="dep-sel dep0"
+                      id="select_ck"
+                      onchange="categoryChange(this)"
+                    >
+                      <option>SIZE</option>
+                      <option value="SMALL">SMALL</option>
+                      <option value="MIDDLE">MIDDLE</option>
+                      <option value="LARGE">LARGE</option>
+                    </select>
+                  </div>
+                  <div class="select-c-box">
+                    <select id="color" class="dep-sel dep0">
+                      <option>COLOR</option>
+                    </select>
+                  </div>
+                  <ul class="prod"></ul>
+                </div>
+              </div>
+            </div>
+
+            <!--총구매금액-->
+            <div class="opt_slt_price_box">
+              <div class="item total">
+                <span class="tit">총 상품금액</span>
+                <span class="num">
+                  <strong>
+                    1,750,000
+                  </strong>
+                  won
+                </span>
+              </div>
+            </div>
+
+            <!-- 장바구니 상품 button -->
+            <div class="ct_wrp order_btn">
+              <div class="ct">
+                <div class="purchase_list_box">
+                  <ul class="lst_order_btn">
+                    <li class="col_2">
+                      <button
+                        class="bt-css bt_cart"
+                        onclick="$(document).on('click','.bt_cart',function(){document.location.href='./user/user-cart.html'})"
+                      >
+                        장바구니
+                      </button>
+                    </li>
+                    <li class="col_2">
+                      <button
+                        class="bt-css bt-buy"
+                        onclick="$(document).on('click','.bt-buy',function(){document.location.href='./user/user-buy.html'})"
+                      >
+                        바로구매
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
+
+      <div class="hr-sect mb-5">DETAIL INFO</div>
+      <!-- 상세 정보 -->
+      <div class="container">
+        <div class="col w3-center mb-5">
+          <img src="img/dress2.jpg" style="width: 50%; margin-bottom: 200px;" />
+          <div class="justify-content-center">
+            <input
+              class="more-style"
+              value="- MORE VIEW -"
+              onclick="if(this.parentNode.getElementsByTagName('div')[0].style.display != '')
+              {this.parentNode.getElementsByTagName('div')[0]
+              .style.display = '';this.value = '- FOLDING -';}
+              else{this.parentNode.getElementsByTagName('div')[0]
+              .style.display = 'none'; this.value = '- MORE VIEW -';}"
+              type="button"
+            />
+            <div style="display: none;">
+              <img
+                src="img/dress2.jpg"
+                style="width: 50%; margin-bottom: 200px;"
+              />
+              <img
+                src="img/dress2.jpg"
+                style="width: 50%; margin-bottom: 200px;"
+              />
+              <img
+                src="img/dress2.jpg"
+                style="width: 50%; margin-bottom: 200px;"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- review Q&A-->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="home-tab"
+              data-toggle="tab"
+              href="#home"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+              >유의사항</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="profile-tab"
+              data-toggle="tab"
+              href="#profile"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+              >REVIEW</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="contact-tab"
+              data-toggle="tab"
+              href="#contact"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+              >Q&A</a
+            >
+          </li>
+        </ul>
+        <!--tab 본문-->
+        <div class="tab-content" id="myTabContent">
+          <!--유의 사항-->
+          <div
+            class="tab-pane fade"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <img src="./img/shopguide.jpg" />
+          </div>
+
+          <!--review -->
+
+          <div
+            class="tab-pane fade"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <div
+              class="container-fluid"
+              style="border-bottom: 1px solid #8c8d90; margin: 15px;"
+            >
+              <!--상품명-->
+              <!--별점-->
+              <div class="starRev one-line">
+                <label class="la_st_box">
+                  별점
+                  <span class="starR on">별1</span>
+                  <span class="starR on">별2</span>
+                  <span class="starR on">별3</span>
+                  <span class="starR">별4</span>
+                  <span class="starR">별5</span>
+                </label>
+              </div>
+
+              <!-- 별점 end -->
+
+              <div class="container">
+                <div class="img_rw_box">
+                  <img src="./img/dress1.jpg" class="img_rw" />
+
+                  <span class="rw_pr_tit">White pants</span>
+                  <span class="rw_txt"
+                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse
+                    vulputate ligula turpis, id tincidunt ipsum vestibulum ac.
+                  </span>
+                </div>
+
+                <!--사용자 id 작성 날짜-->
+                <div class="mt-5">
+                  <span>quss**</span>
+                  <span>&#124;</span>
+                  <span>2020-05-13</span>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+
+            <div
+              class="container-fluid"
+              style="border-bottom: 1px solid #8c8d90; margin: 15px;"
+            >
+              <!--상품명-->
+              <!--별점-->
+              <div class="starRev one-line">
+                <label class="la_st_box">
+                  별점
+                  <span class="starR on">별1</span>
+                  <span class="starR on">별2</span>
+                  <span class="starR on">별3</span>
+                  <span class="starR">별4</span>
+                  <span class="starR">별5</span>
+                </label>
+              </div>
+
+              <!-- 별점 end -->
+
+              <div class="container">
+                <div class="img_rw_box">
+                  <img src="./img/dress1.jpg" class="img_rw" />
+
+                  <span class="rw_pr_tit">White pants</span>
+                  <span class="rw_txt"
+                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse
+                    vulputate ligula turpis, id tincidunt ipsum vestibulum ac.
+                  </span>
+                </div>
+
+                <!--사용자 id 작성 날짜-->
+                <div class="mt-5">
+                  <span>quss**</span>
+                  <span>&#124;</span>
+                  <span>2020-05-13</span>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+
+            <div
+              class="container-fluid"
+              style="border-bottom: 1px solid #8c8d90; margin: 15px;"
+            >
+              <!--상품명-->
+              <!--별점-->
+              <div class="starRev one-line">
+                <label class="la_st_box">
+                  별점
+                  <span class="starR on">별1</span>
+                  <span class="starR on">별2</span>
+                  <span class="starR on">별3</span>
+                  <span class="starR on">별4</span>
+                  <span class="starR">별5</span>
+                </label>
+              </div>
+
+              <!-- 별점 end -->
+
+              <div class="container">
+                <div class="img_rw_box">
+                  <img src="./img/dress1.jpg" class="img_rw" />
+
+                  <span class="rw_pr_tit">White pants</span>
+                  <span class="rw_txt"
+                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse
+                    vulputate ligula turpis, id tincidunt ipsum vestibulum ac.
+                  </span>
+                </div>
+
+                <!--사용자 id 작성 날짜-->
+                <div class="mt-5">
+                  <span>quss**</span>
+                  <span>&#124;</span>
+                  <span>2020-05-13</span>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+
+            <!--end-->
+          </div>
+
+          <div
+            class="tab-pane fade show active"
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+          >
+            <div class="d-flex justify-content-end">
+              <button
+                class="bt-review-wr"
+                data-toggle="modal"
+                data-target="#staticBackdrop"
+              >
+                질문하기
+              </button>
+            </div>
+            <!--구매자 id-->
+            <div class="container">
+              <div
+                style="border-bottom: 1px solid #8c8d90;"
+                class="justify-content-center"
+              >
+                <div class="row mt-5" style="margin-bottom: 20px;">
+                  <span class="mr-2">qus**</span>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <span class="ml-2">2020-05-13</span>
+                </div>
+                <!--질문-->
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse?
+                  </p>
+                </div>
+                <div class="mb-3">
+                  <a style="margin-right: 10px;">댓글보기 : 0개</a>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <button style="margin-left: 10px;" class="qa-btn">
+                    댓글달기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+            <!--구매자 id-->
+            <div class="container">
+              <div
+                style="border-bottom: 1px solid #8c8d90;"
+                class="justify-content-center"
+              >
+                <div class="row mt-5" style="margin-bottom: 20px;">
+                  <span class="mr-2">qus**</span>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <span class="ml-2">2020-05-13</span>
+                </div>
+                <!--질문-->
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse?
+                  </p>
+                </div>
+                <div class="mb-3">
+                  <a style="margin-right: 10px;">댓글보기 : 0개</a>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <button style="margin-left: 10px;" class="qa-btn">
+                    댓글달기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+            <!--구매자 id-->
+            <div class="container">
+              <div
+                style="border-bottom: 1px solid #8c8d90;"
+                class="justify-content-center"
+              >
+                <div class="row mt-5" style="margin-bottom: 20px;">
+                  <span class="mr-2">qus**</span>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <span class="ml-2">2020-05-13</span>
+                </div>
+                <!--질문-->
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras luctus nunc ut maximus consequat. Vestibulum et mi
+                    vulputate, convallis tortor quis, blandit mi. Suspendisse?
+                  </p>
+                </div>
+                <div class="mb-3">
+                  <a style="margin-right: 10px;">댓글보기 : 0개</a>
+                  <span style="color: #8c8d90;">&#124;</span>
+                  <button style="margin-left: 10px;" class="qa-btn">
+                    댓글달기
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--end-->
+          </div>
+        </div>
+
+        <!--reviews end-->
+      </div>
+
+      <!--end-->
+    </article>
+
+    <!-- footer include -->
+
+    <footer class="bg-gray mt-5">
+      <div class="container p-5">
+        <div class="row">
+          <h2 class="red-text">NAVIYA</h2>
+        </div>
+        <div class="pl-5 pr-5 d-flex row">
+          <div class="col-sm-3">
+            <div>
+              SHOP
+            </div>
+            <div>
+              고객센터
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div>
+              <span class="font-weight-bold"> TEAMLEADER </span><br />
+              <span
+                ><a class="atag-github" href="https://github.com/jeongseongjong"
+                  >&nbsp;&nbsp;- NAVI</a
+                ></span
+              >
+            </div>
+            <div>
+              <span class="font-weight-bold">UI/UX</span> <br />
+              <span
+                ><a class="atag-github" href="https://github.com/qussoa"
+                  >&nbsp;&nbsp;- QUSSOA</a
+                ></span
+              >
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div>
+              <span class="font-weight-bold">DEVELOPER</span><br />
+              <span
+                ><a class="atag-github" href="https://github.com/leeiter"
+                  >&nbsp;&nbsp;- PRINCESSEJIN</a
+                ></span
+              >
+            </div>
+            <div>
+              <span class="font-weight-bold">DEVELOPER</span><br />
+              <span
+                ><a class="atag-github" href="https://github.com/bjmin17"
+                  >&nbsp;&nbsp; - BJ.MIN</a
+                ></span
+              >
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div>
+              <small>
+                광주광역시 북구 경양로170<br />
+                한경빌딩 5층
+              </small>
+            </div>
+            <div>
+              <small>
+                &copy; copyRight qussoa@naver.com
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-backdrop="static"
+    data-keyboard="false"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+    style="top: 250px;"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title m_tit" id="staticBackdropLabel">질문하기</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <textarea class="txt_box"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="bt_save" data-dismiss="modal">
+            닫기
+          </button>
+          <button type="button" class="bt_save">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
